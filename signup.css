@@ -1,0 +1,80 @@
+body {
+    background: linear-gradient(120deg, rgb(234, 24, 206), rgb(3, 244, 220));
+    background-repeat: repeat;
+    height: 100vh;
+}
+
+h1 {
+    color: aliceblue;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 50px;
+    /* border:solid; */
+    border-radius: 10px;
+    width: fit-content;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 5vw;
+    
+}
+
+h2 {
+    text-align: center;
+
+    font-size: 40px;
+    border: solid;
+    border-radius: 10px;
+    background-color: aqua;
+    width: fit-content;
+    padding: 10px;
+    margin: auto;
+}
+
+.container {
+    border: solid;
+    border-radius: 10px;
+    text-align: center;
+
+    width: fit-content;
+    margin: auto;
+}
+form {
+    text-align: center;
+
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inputField {
+    text-align: center;
+    width: fit-content;
+
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.label {
+    font-size: 20px;
+    font-family: -apple-system;
+}
+input {
+    width: fit-content;
+
+    border-radius: 5px;
+}
+
+.button {
+    color: black;
+    padding: auto;
+    font: -apple-system;
+    margin: auto;
+}
+
+input[type="submit"] {
+    background-color: rgb(7, 236, 80);
+    width: fit-content;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
