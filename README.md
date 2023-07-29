@@ -6,5 +6,6 @@ This is a website. It asks for patient's signup. Then once patient signed in, pa
 Technology used:
 1)pragamming language: python,php,html,css
 2)Database: AWS Mysql  database
+3)WebApp Hosting: Xampp 
 
 
