@@ -22,56 +22,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     else{
 
 
-    
-
     $sql = "SELECT * FROM user_details WHERE hospital_id = '$hospitalID' AND password ='$password'";
-    
-
     $result = mysqli_query($conn,$sql);
-
     $numRows = mysqli_num_rows($result);
-
     if ($numRows==1){
         $login = true;
-        
         session_start();
         $_SESSION['loggedin'] = true;
         $_SESSION['hospital ID'] = $hospitalID;
-        header('location:upload.php');
-        
+        header('location:upload.php'); 
     }
-
     else{
 
         $showError = "Invalid Credentials";
     }
-
     }
-
-
-
-
 }
-
-
-
-
-
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -100,10 +67,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
           </div>';
       } 
     ?>
-
-
-
-
     <h1 style="color: aliceblue;font-size: 5vw;">Welcome to CMC Wound Detection App</h1>
     <h2>Login Page</h2>
 
@@ -118,9 +81,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label class = 'label' for="password">Please enter your Password :</label>
                 <input type = "password" name="password">
             </div>
-
-            
-            
             <div class="button">
                 <input type = "submit" value="Submit" class="btn btn-secondary">
             </div>
