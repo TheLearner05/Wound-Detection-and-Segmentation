@@ -1,11 +1,8 @@
 <?php
 session_start();
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
   include "partials\db_connect.php";
-
   $hospitalID = $_POST["hospital_id"];
   $kk = file_get_contents('./output.txt',true);
   $kk = rtrim($kk," ");
@@ -14,29 +11,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
   $finalCntArea = array(); 
   //print_r($cntInfo);
   for ($i=0;$i <count($cntInfo);$i++){
-      
-      
       array_push($cntArea,explode(":",$cntInfo[$i])[1]);
-
-    }
-                
+    }        
   $sql = "INSERT INTO `wound_details` (`hospital_id`,`wound_areas`,`date`) 
             values ( '$hospitalID','$cntArea', current_timestamp())";
             $result = mysqli_query($conn,$sql);
 
- 
-
-
 }
-
-
-
 ?>
-
-
-
-
-
 
 <!doctype html>
 <html lang="en">
@@ -53,9 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div>
       <P>its here</p>
-      
-      
-      
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
