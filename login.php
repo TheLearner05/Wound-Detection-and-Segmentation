@@ -7,21 +7,16 @@ $username = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
     include "partials\db_connect.php";
-
-    $hospitalID = $_POST["hospital_id"];
-                  
+    
+    $hospitalID = $_POST["hospital_id"];          
     $password = $_POST['password'];
-
     if ($hospitalID == "" || $password == ""){
         echo'<div class="alert alert-Danger alert-dismissible fade show" role="alert">
         <strong>Warning!</strong> Please fill all the fields
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>';
-
     }
     else{
-
-
     $sql = "SELECT * FROM user_details WHERE hospital_id = '$hospitalID' AND password ='$password'";
     $result = mysqli_query($conn,$sql);
     $numRows = mysqli_num_rows($result);
@@ -33,7 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         header('location:upload.php'); 
     }
     else{
-
         $showError = "Invalid Credentials";
     }
     }
@@ -58,7 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         <strong>Success!</strong> You are logged in successfully.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>';
-        
       }
       if($showError){
         echo'<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -84,13 +77,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="button">
                 <input type = "submit" value="Submit" class="btn btn-secondary">
             </div>
-
-            <div class="button">
-                
+            <div class="button">  
                 <a href="signup.php" class="btn btn-secondary">Go back to Signup</a>
             </div>
             
-
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
