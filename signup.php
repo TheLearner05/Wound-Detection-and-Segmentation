@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $password = $_POST['password'];
     $cpassword = $_POST['cpassword'];
     
-    
     //check if user exists.
 
     $existSql = "SELECT * FROM user_details WHERE hospital_id = '$hospitalID'";
@@ -19,11 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     if ($numRows > 0){
         if($username = "" || $hospitalID="" || $password="" || $cpassword=""){
             $showError = "Please fill all the fields";
-        }else{$showError = "User already Exists";}
-
-        
+        }else{$showError = "User already Exists";} 
     }
-
     else{
         if ($password == $cpassword){
             $sql = "INSERT INTO `user_details` (`patient_name`,`hospital_id`,`password`,`date`) 
@@ -31,29 +27,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
             $result = mysqli_query($conn,$sql);
             if($result){
                 $showAlert = true;
-
-
-
             }
         }else{$showError="passswords are not matching";}
     }
-
-
-
 }
 
-
 ?>
-
-
-
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     <link rel="stylesheet" href='./signup.css'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     
-
 </head>
 <body>
     <?php
@@ -83,10 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
           </div>';
       } 
     ?>
-
-
-
-
     <h1 style="color: aliceblue;font-size: 5vw;">Welcome to CMC Wound Detection App</h1>
     <h2>Sign up Page</h2>
   
