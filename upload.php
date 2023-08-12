@@ -7,15 +7,9 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     header("location: login.php");
     exit;
   }   
-
-
-
-
 $fileName="";
 
-//if (isset($_POST['submit'])){
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    
     
     if(!file_exists($_FILES['image']['tmp_name']) || !is_uploaded_file($_FILES['image']['tmp_name'])) {
         $showAlert = true;
@@ -33,48 +27,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
         $fileExt = strtolower($fileExt[1]);
         $allowedExt = array('jpg','jpeg','png','pdf');
-
-
+        
         if(in_array($fileExt,$allowedExt)){
             if ($fileError === 0){
                 if ($fileSize <1000000){
                     $fileNameNew = date('Y-m-d_H-i-s') .".".$fileExt;
                     $filePath = "C:/a/xampp/htdocs/webApp/uploads/".$fileNameNew;
                     move_uploaded_file($fileTmpPath,$filePath);
-                    
-
                     $command = escapeshellcmd("python C:/a/xampp/htdocs/webApp/app2.py" . " ".$filePath);
-
                     shell_exec($command );
-
                     $isImg = true;
-
                 }
-                
                 else
                 {
                     echo " your file is too big";
                 }
-
             }
             else
             {
                 echo 'file is not uploaded properly';
             }
-
-
         }
         else
         {
             echo 'invalid extension';
         }
-        
     }
-
-
 }
-            
-
 ?>
 
 <!DOCTYPE html>
@@ -97,33 +76,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         <strong>Warning!</strong> Please select the image.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>';
-        
-        
       }
-     
     ?>
-
+          
     <div class="container">
         <form action="upload.php" method="POST" enctype="multipart/form-data">
-
+            
             <div class="inputField">  
                 <input type = "file" name='image'  id = "imageInput">
             </div>
-           
             <div class="button">
                 <input class="btn btn-secondary" type = "submit" name='submit' value="Upload">
             </div>
             <div class="button">
-                
                 <a href="login.php" class="btn btn-secondary">LogOut</a>
             </div>
             
-
         </form>
     </div>
     <div >
-        
-        
         <?php
         if ($isImg == true){
             echo'<P>hello. This is your segmented wounds</p>';
@@ -146,11 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $result = mysqli_query($conn,$sql);
             
         }
-
         ?>
-
-       
-        
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
